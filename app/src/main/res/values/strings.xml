@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Gravity</string>
+    <string name="phone_axes">Phone axes</string>
+    <string name="start_btn">Start</string>
+    <string name="stop_btn">Stop</string>
+    <string name="x_gravity">X-Gravity</string>
+    <string name="y_gravity">Y-Gravity</string>
+    <string name="z_gravity">Z-Gravity</string>
+</resources>

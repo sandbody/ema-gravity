@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GravityActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="40dp"
+        app:srcCompat="@raw/phone_axes"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="130dp"
+        android:contentDescription="@string/phone_axes" />
+
+    <Button
+        android:id="@+id/button_start"
+        android:layout_width="122dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="450dp"
+        android:text="@string/start_btn" />
+
+    <Button
+        android:id="@+id/button_stop"
+        android:layout_width="122dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="450dp"
+        android:text="@string/stop_btn" />
+
+    <TextView
+        android:id="@+id/x_gravity"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="300dp"
+        android:text="@string/x_gravity" />
+
+    <TextView
+        android:id="@+id/y_gravity"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/y_gravity" />
+
+    <TextView
+        android:id="@+id/z_gravity"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="300dp"
+        android:text="@string/z_gravity" />
+
+</android.support.design.widget.CoordinatorLayout>
