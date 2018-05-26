@@ -1,22 +1,39 @@
 package de.ema.kd.gravity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-public class GravityActivity extends AppCompatActivity {
-    private boolean isRunning = false;
+import de.ema.kd.gravity.event.GravityEventHandler;
+import de.ema.kd.gravity.event.GravityEventListener;
+import de.ema.kd.gravity.service.GravityService;
+
+public class GravityActivity extends AppCompatActivity implements GravityEventListener {
+
+
     private GravityService gravityService;
+    private TextView viewX;
+    private TextView viewY;
+    private TextView viewZ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gravity);
-        gravityService = new GravityService(this);
+        viewX = findViewById(R.id.x_gravity);
+        viewY = findViewById(R.id.y_gravity);
+        viewZ = findViewById(R.id.z_gravity);
+
         Button buttonStart = (Button) findViewById(R.id.button_start);
         Button buttonStop = (Button) findViewById(R.id.button_stop);
         addAction(buttonStart);
         addAction(buttonStop);
+
+        gravityService = new GravityService(this);
+        GravityEventHandler.getInstance().addGravityEventListener(this);
+
     }
 
 
@@ -33,5 +50,12 @@ public class GravityActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onGravityChanged(float[] gravity) {
+        viewX.setText(Float.toString(gravity[0]));
+        viewY.setText(Float.toString(gravity[1]));
+        viewZ.setText(Float.toString(gravity[2]));
     }
 }
