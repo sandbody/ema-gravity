@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import de.ema.kd.gravity.event.GravityEventHandler;
 import de.ema.kd.gravity.event.GravityEventListener;
 import de.ema.kd.gravity.service.GravityService;
 
@@ -32,9 +31,18 @@ public class GravityActivity extends AppCompatActivity implements GravityEventLi
         addAction(buttonStop);
 
         gravityService = new GravityService(this);
-        GravityEventHandler.getInstance().addGravityEventListener(this);
 
     }
+
+
+
+    @Override
+    public void onGravityChanged(float[] gravity) {
+        viewX.setText(Float.toString(gravity[0]));
+        viewY.setText(Float.toString(gravity[1]));
+        viewZ.setText(Float.toString(gravity[2]));
+    }
+
 
 
 
@@ -50,12 +58,5 @@ public class GravityActivity extends AppCompatActivity implements GravityEventLi
                 }
             }
         });
-    }
-
-    @Override
-    public void onGravityChanged(float[] gravity) {
-        viewX.setText(Float.toString(gravity[0]));
-        viewY.setText(Float.toString(gravity[1]));
-        viewZ.setText(Float.toString(gravity[2]));
     }
 }
